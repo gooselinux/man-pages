@@ -1,0 +1,32 @@
+diff -up man-pages-3.24/man3/atanh.3.pom man-pages-3.24/man3/atanh.3
+--- man-pages-3.24/man3/atanh.3.pom	2010-02-26 05:46:40.000000000 +0100
++++ man-pages-3.24/man3/atanh.3	2010-05-03 11:16:35.000000000 +0200
+@@ -116,9 +116,7 @@ is raised.
+ Pole error: \fIx\fP is +1 or \-1
+ .I errno
+ is set to
+-.BR ERANGE
+-(but see BUGS).
+-.\" FIXME . glibc actually gives EDOM for this case
++.BR ERANGE .
+ A divide-by-zero floating-point exception
+ .RB ( FE_DIVBYZERO )
+ is raised.
+@@ -128,17 +126,6 @@ The variant returning
+ .I double
+ also conforms to
+ SVr4, 4.3BSD, C89.
+-.SH BUGS
+-For a pole error,
+-.\"
+-.\" FIXME . this is as at glibc 2.8; check later if this bug is fixed
+-.\" This can be seen in sysdeps/ieee754/k_standard.c
+-.\" Bug raised: http://sources.redhat.com/bugzilla/show_bug.cgi?id=6759
+-.I errno
+-is set to
+-.BR EDOM ;
+-POSIX.1 says it should be set to
+-.BR ERANGE .
+ .SH "SEE ALSO"
+ .BR acosh (3),
+ .BR asinh (3),

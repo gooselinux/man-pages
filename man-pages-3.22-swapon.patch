@@ -1,0 +1,22 @@
+--- man-pages-3.22/man2/swapon.2.old	2010-06-14 14:43:47.000000000 +0200
++++ man-pages-3.22/man2/swapon.2	2010-06-14 14:44:41.000000000 +0200
+@@ -157,7 +157,7 @@ Before kernel 2.4.10,
+ .B MAX_SWAPFILES
+ has the value 8;
+ since kernel 2.4.10, it has the value 32.
+-Since kernel 2.6.18, the limit is decreased by 2 (thus: 30)
++Since kernel 2.6.18, the limit is decreased by 2
+ if the kernel is built with the
+ .B CONFIG_MIGRATION
+ option
+@@ -165,6 +165,10 @@ option
+ .BR mbind (2)
+ and
+ .BR migrate_pages (2)).
++Since kernel 2.6.32, the limit is decreased by 1
++if the kernel is built with the
++.B CONFIG_MEMORY_FAILURE
++option.
+ .SH "SEE ALSO"
+ .BR mkswap (8),
+ .BR swapoff (8),

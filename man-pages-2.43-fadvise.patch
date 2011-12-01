@@ -1,0 +1,178 @@
+--- man-pages-2.43/man2/fadvise.2.pom	2007-02-27 11:08:29.000000000 +0100
++++ man-pages-2.43/man2/fadvise.2	2007-02-27 11:24:26.000000000 +0100
+@@ -1,90 +1,85 @@
+-.\" Copyright (C) 2004 IBM Corporation
+-.\" This file is distributed according to the GNU General Public License.
+-.\" See the file COPYING in the top level source directory for details.
+-.\"
+- 
+-.de Sh \" Subsection
+-.br
+-.if t .Sp
+-.ne 5
+-.PP
+-\fB\\$1\fR
+-.PP
+-..
+-.de Sp \" Vertical space (when we can't use .PP)
+-.if t .sp .5v
+-.if n .sp
+-..
+-.de Ip \" List item
+-.br
+-.ie \\n(.$>=3 .ne \\$3
+-.el .ne 3
+-.IP "\\$1" \\$2
+-..
+-.TH "FADVISE64,FADVISE64_64" 2 "2004-March-12" "Linux 2.6" "Linux Programmer's Guide"
+-.SH NAME
+-fadvise64,fadvise64_64 \- Give advice about file access
+-.SH "SYNOPSIS"
+-.ad l
+-.hy 0
+-.HP 44
+-long\ \fBfadvise64_64\fR
+-(int\ \fIfs\fR, loff_t\ \fIoffset\fR, loff_t\ \fIlen\fR, int\ \fIadvice\fR, int\ \fIfs\fR, loff_t\ \fIoffset\fR, loff_t\ \fIlen\fR, int\ \fIadvice\fR);
+-.HP 19
+-long\ \fBsys_fadvise64\fR\ 
+-(int\ \fIfs\fR, loff_t\ \fIoffset\fR, loff_t\ \fIlen\fR, int\ \fIadvice\fR, int\ \fIfs\fR, loff_t\ \fIoffset\fR, loff_t\ \fIlen\fR, int\ \fIadvice\fR);
+-.ad
+-.hy
+-
+-.SH "DESCRIPTION"
+-
+-.PP
+-Allows an application to to tell the kernel how it expects to use a file handle, so that the kernel can choose appropriate read-ahead and caching techniques for access to the corresponding file. This is similar to the POSIX version of the \fBmadvise\fR system call, but for file access instead of memory access. The sys_fadvise64() function is obsolete and corresponds to a broken glibc API, sys_fadvise64_64() is the fixed version.
+-The following are the values for the \fIadvice\fR parameter:
+-
+-.TP
+-FADV_NORMAL
+-No special treatment.
+-
+-.TP
+-FADV_RANDOM
+-Expect page references in random order.
+-
+-.TP
+-FADV_SEQUENTIAL
+-Expect page references in sequential order.
+-
+-.TP
+-FADV_WILLNEED
+-Expect access in the near future.
+-
+-.TP
+-FADV_DONTNEED
+-Do not expect access in the near future. Subsequent access of pages in this range will succeed, but will result either in reloading of the memory contents from the underlying mapped file or zero-fill-in-demand pages for mappings without an underlying file.
+-
+-.TP
+-FADV_NOREUSE
+-Access data only once.
+-
+-.SH "RETURN VALUE"
+-
+-.PP
+-\fBdelete_module\fR returns 0 on success; otherwise, it returns one of the errors listed in the "Errors" section.
+-
+-.SH "ERRORS"
+-
+-.TP
+--EBADF
+-An invalid file descriptor was specified. to modify the modules.
+-
+-.TP
+--EINVAL
+-An invalid \fIf_mapping\fR of \fIfile\fR, \fIlen\fR value smaller than 0 or \fIadvice\fR value unknown. 
+-
+-.SH "SEE ALSO"
+-.BR madvise(2)
+-\fB\fR
+-
+-
+-.SH AUTHOR
+-Niki Rahimi
++.\" Copyright (C) 2004 IBM Corporation
++.\" This file is distributed according to the GNU General Public License.
++.\" See the file COPYING in the top level source directory for details.
++.\"
++ 
++.de Sh \" Subsection
++.br
++.if t .Sp
++.ne 5
++.PP
++\fB\\$1\fR
++.PP
++..
++.de Sp \" Vertical space (when we can't use .PP)
++.if t .sp .5v
++.if n .sp
++..
++.de Ip \" List item
++.br
++.ie \\n(.$>=3 .ne \\$3
++.el .ne 3
++.IP "\\$1" \\$2
++..
++.TH "FADVISE64,FADVISE64_64" 2 "2004-March-12" "Linux 2.6" "Linux Programmer's Guide"
++.SH NAME
++fadvise64,fadvise64_64 \- Give advice about file access
++.SH "SYNOPSIS"
++.ad l
++.hy 0
++.HP 44
++long\ \fBfadvise64_64\fR
++(int\ \fIfs\fR, loff_t\ \fIoffset\fR, loff_t\ \fIlen\fR, int\ \fIadvice\fR, int\ \fIfs\fR, loff_t\ \fIoffset\fR, loff_t\ \fIlen\fR, int\ \fIadvice\fR);
++.HP 19
++long\ \fBsys_fadvise64\fR\ 
++(int\ \fIfs\fR, loff_t\ \fIoffset\fR, loff_t\ \fIlen\fR, int\ \fIadvice\fR, int\ \fIfs\fR, loff_t\ \fIoffset\fR, loff_t\ \fIlen\fR, int\ \fIadvice\fR);
++.ad
++.hy
++
++.SH "DESCRIPTION"
++
++.PP
++Allows an application to to tell the kernel how it expects to use a file handle, so that the kernel can choose appropriate read-ahead and caching techniques for access to the corresponding file. This is similar to the POSIX version of the \fBmadvise\fR system call, but for file access instead of memory access. The sys_fadvise64() function is obsolete and corresponds to a broken glibc API, sys_fadvise64_64() is the fixed version.
++The following are the values for the \fIadvice\fR parameter:
++
++.TP
++FADV_NORMAL
++No special treatment.
++
++.TP
++FADV_RANDOM
++Expect page references in random order.
++
++.TP
++FADV_SEQUENTIAL
++Expect page references in sequential order.
++
++.TP
++FADV_WILLNEED
++Expect access in the near future.
++
++.TP
++FADV_DONTNEED
++Do not expect access in the near future. Subsequent access of pages in this range will succeed, but will result either in reloading of the memory contents from the underlying mapped file or zero-fill-in-demand pages for mappings without an underlying file.
++
++.TP
++FADV_NOREUSE
++Access data only once.
++
++.SH "ERRORS"
++
++.TP
++-EBADF
++An invalid file descriptor was specified. to modify the modules.
++
++.TP
++-EINVAL
++An invalid \fIf_mapping\fR of \fIfile\fR, \fIlen\fR value smaller than 0 or \fIadvice\fR value unknown. 
++
++.SH "SEE ALSO"
++.BR madvise(2)
++\fB\fR
++
++
++.SH AUTHOR
++Niki Rahimi

@@ -1,0 +1,29 @@
+diff -up man-pages-3.22/man5/gai.conf.5.pom man-pages-3.22/man5/gai.conf.5
+--- man-pages-3.22/man5/gai.conf.5.pom	2006-05-15 10:18:05.000000000 +0200
++++ man-pages-3.22/man5/gai.conf.5	2009-08-11 08:55:22.000000000 +0200
+@@ -51,7 +51,7 @@ value.
+ .TP
+ \fBprecedence\fR \fInetmask\fR \fIprecedence\fR
+ This  keyword is similar to \fBlabel\fR but instead the value is added
+-to the precendence table as specified in RFC 3484.  Once again, the
++to the precedence table as specified in RFC 3484.  Once again, the
+ presence of a single \fBprecedence\fR line in the configuration file
+ causes the default table to not be used.
+ 
+@@ -74,11 +74,11 @@ label  ::/0          1
+ label  2002::/16     2
+ label ::/96          3
+ label ::ffff:0:0/96  4
+-precendence  ::1/128       50
+-precendence  ::/0          40
+-precendence  2002::/16     30
+-precendence ::/96          20
+-precendence ::ffff:0:0/96  10
++precedence  ::1/128       50
++precedence  ::/0          40
++precedence  2002::/16     30
++precedence ::/96          20
++precedence ::ffff:0:0/96  10
+ 
+ 
+ .SH FILES

@@ -1,0 +1,19 @@
+--- man-pages-2.63/man1/iconv.1.pom	2007-08-07 14:08:32.000000000 +0200
++++ man-pages-2.63/man1/iconv.1	2007-08-07 14:35:22.000000000 +0200
+@@ -216,6 +216,16 @@ Specify output file (instead of stdout)
+ \fB--verbose\fR
+ .PP
+ Print progress information.
++.SH "EXAMPLES"
++Following examples convert from code set ISO88592 "input.txt" to UTF8
++code set or ASCII and stores the result as "output.txt".
++\fB  
++iconv -f ISO88592 -t UTF8 < input.txt > output.txt
++.sp
++iconv -f ISO88592 -t ASCII//TRANSLIT < input.txt > output.txt
++\fp
++.fi
++
+ .SH "AUTHOR"
+ iconv is written by Ulrich Drepper as part of the GNU C Library.
+ .PP

@@ -1,0 +1,43 @@
+--- man-pages-2.55/man1/getent.1~	2001-03-09 18:27:32.000000000 +0200
++++ man-pages-2.55/man1/getent.1	2007-07-18 01:50:51.000000000 +0300
+@@ -93,7 +93,7 @@
+ .nr % 0
+ .rr F
+ .\}
+-.TH GETENT 1 "Match 2001" "Red Hat Linux"
++.TH GETENT 1 "July 2007" "Red Hat Linux"
+ .UC
+ .if n .hy 0
+ .if n .na
+@@ -192,10 +192,20 @@ getent \- get entries from administrativ
+ .SH "SYNOPSIS"
+ \fBgetent\fR \fIdatabase\fR [\fIkey\fR ...]
+ .SH "DESCRIPTION"
+-The \fIgetent\fR program gathers entries from the specified
++The \fBgetent\fR program gathers entries from the specified
+ administrative database using the specified search keys.
+-Where \fIdatabase\fR is one of aliases, ethers, group, hosts,
+-netgroup, networks, passwd, protocols, rpc, services or shadow.
++\fIdatabase\fR is one of ahosts, ahostsv4, ahostsv6, aliases, ethers,
++group, hosts, netgroup, networks, passwd, protocols, rpc, services or
++shadow.
++.SH "EXIT STATUS"
++.IP 0
++Success; the requested entries were found.
++.IP 1
++Wrong number of or invalid arguments.
++.IP 2
++One or more of the requested entries could not be found.
++.IP 3
++Unsupported operation.
+ .SH "AUTHOR"
+ getent is written by Thorsten Kukuk for the GNU C Library.
+ .PP
+@@ -213,5 +223,7 @@ for GNU C Library 2.2.2 getent changes.
+ 
+ .IX Header "DESCRIPTION"
+ 
++.IX Header "EXIT STATUS"
++
+ .IX Header "AUTHOR"
+ 
